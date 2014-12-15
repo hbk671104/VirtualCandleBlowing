@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) FlameView *flameView;
+
 @end
 
 @implementation ViewController {
@@ -22,6 +24,7 @@
 
 @synthesize recorder;
 @synthesize levelTimer;
+@synthesize flameView;
 
 - (void)viewDidLoad {
 	
@@ -30,8 +33,8 @@
 	[self setUpBlowDetection];
 	
 	CGRect viewBounds = self.view.layer.bounds;
-	FlameView *flameView = [[FlameView alloc] initWithFrame:CGRectMake(viewBounds.size.width/2.0 - 10, viewBounds.size.height/2.0 - 10, 20, 20)];
-	[self.view addSubview:flameView];
+	self.flameView = [[FlameView alloc] initWithFrame:CGRectMake(viewBounds.size.width/2.0 - 10, viewBounds.size.height/2.0 - 10, 20, 20)];
+	[self.view addSubview:self.flameView];
 	
 }
 
@@ -76,12 +79,11 @@
 	lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
 	
 	if (lowPassResults > 0.95 && !blowTriggered) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
-														message:@"Blow detected!"
-													   delegate:self
-											  cancelButtonTitle:@"Yes!"
-											  otherButtonTitles:nil, nil];
-		[alert show];
+		NSLog(@"blow detected!");
+		
+		// Remove fire emitter
+		[flameView.fireEmitter removeFromSuperlayer];
+		
 		blowTriggered = YES;
 	}
 	
