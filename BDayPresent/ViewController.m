@@ -7,26 +7,35 @@
 //
 
 #import "ViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#import <CoreAudio/CoreAudioTypes.h>
+#import "FlameView.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController {
-	
-	AVAudioRecorder *recorder;
-	NSTimer *levelTimer;
+
 	double lowPassResults;
-	
 	BOOL blowTriggered;
 	
 }
 
+@synthesize recorder;
+@synthesize levelTimer;
+
 - (void)viewDidLoad {
+	
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	[self setUpBlowDetection];
+	
+	CGRect viewBounds = self.view.layer.bounds;
+	FlameView *flameView = [[FlameView alloc] initWithFrame:CGRectMake(viewBounds.size.width/2.0 - 10, viewBounds.size.height/2.0 - 10, 20, 20)];
+	[self.view addSubview:flameView];
+	
+}
+
+- (void)setUpBlowDetection {
 	
 	NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
 	
@@ -54,7 +63,6 @@
 		NSLog(@"error %@",[error description]);
 	
 	// Haven't blowed yet
-	// 想到了邪恶的事情。。。。
 	blowTriggered = NO;
 	
 }
