@@ -27,13 +27,31 @@
 @synthesize levelTimer;
 @synthesize cakeView;
 
+- (id) init {
+	
+	if ([super init]) {
+		
+		// Sound did finish playing notification
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(soundDidFinishPlaying:)
+													 name:SoundDidFinishPlayingNotification
+												   object:nil];
+		
+	}
+	
+	return self;
+	
+}
+
 - (void)viewDidLoad {
 	
 	[super viewDidLoad];
 	
+	// Blow detection
 	[self setUpBlowDetection];
 	
 	CGRect viewBounds = self.view.layer.bounds;
+	// Cake view
 	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
 															   viewBounds.size.height/3.0,
 															   viewBounds.size.width,
@@ -43,8 +61,23 @@
 	// Birthday sound
 	[SoundManager sharedManager].allowsBackgroundMusic = YES;
 	[[SoundManager sharedManager] prepareToPlayWithSound:@"birthdaySong.aiff"];
-	
 	[[SoundManager sharedManager] playSound:@"birthdaySong.aiff" looping:NO fadeIn:YES];
+	
+}
+
+- (void) soundDidFinishPlaying:(NSNotification *) notification {
+	
+	// [notification name] should always be @"TestNotification"
+	// unless you use this method for observation of other notifications
+	// as well.
+	
+	if ([[notification name] isEqualToString:SoundDidFinishPlayingNotification]) {
+		
+		// Display the "blow into the mic to put out the candle"
+		
+		
+	}
+		
 	
 }
 
