@@ -14,6 +14,7 @@
 @interface ViewController ()
 
 @property (strong, nonatomic) CakeView *cakeView;
+@property (strong, nonatomic) CSAnimationView *topAnimationView, *bottomAnimationView;
 
 @end
 
@@ -22,11 +23,14 @@
 	double lowPassResults;
 	BOOL blowTriggered;
 	
+	CGRect viewBounds;
+	
 }
 
 @synthesize recorder;
 @synthesize levelTimer;
 @synthesize cakeView;
+@synthesize topAnimationView, bottomAnimationView;
 
 - (id) init {
 	
@@ -48,18 +52,38 @@
 	
 	[super viewDidLoad];
 
-	CGRect viewBounds = self.view.layer.bounds;
+	viewBounds = self.view.layer.bounds;
 	
-	// Cake view
+	// Top and bottom animation view
+	topAnimationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(0,
+																		 0,
+																		 viewBounds.size.width,
+																		 viewBounds.size.height/3.0)];
+	bottomAnimationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(0,
+																			viewBounds.size.height/3.0,
+																			viewBounds.size.width,
+																			viewBounds.size.height*2/3.0)];
+	
+	// Add cake view to botton animation view
 	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
-															   viewBounds.size.height/3.0,
-															   viewBounds.size.width,
-															   viewBounds.size.height*2/3.0)];
-	[self.view addSubview:self.cakeView];
+															   0,
+															   bottomAnimationView.frame.size.width,
+															   bottomAnimationView.frame.size.width)];
+	[bottomAnimationView addSubview:self.cakeView];
+	
+	bottomAnimationView.duration = 0.5;
+	bottomAnimationView.delay = 0;
+	bottomAnimationView.type = CSAnimationTypeBounceUp;
+	
+	[self.view addSubview:topAnimationView];
+	[self.view addSubview:bottomAnimationView];
+	[bottomAnimationView startCanvasAnimation];
 	
 	// Birthday sound
 	[SoundManager sharedManager].allowsBackgroundMusic = YES;
 	[[SoundManager sharedManager] prepareToPlayWithSound:@"birthdaySong.aiff"];
+	[[SoundManager sharedManager] setSoundVolume:0.5];
+	[[SoundManager sharedManager] setSoundFadeDuration:0.5];
 	[[SoundManager sharedManager] playSound:@"birthdaySong.aiff" looping:NO fadeIn:YES];
 	
 }
@@ -77,8 +101,22 @@
 		// Fire blow detection
 		[self setUpBlowDetection];
 		
-	}
+		// Display blow instruction
+		topAnimationView.duration = 0.5;
+		topAnimationView.delay = 0;
+		topAnimationView.type = CSAnimationTypeBounceDown;
 		
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, topAnimationView.frame.size.width, topAnimationView.frame.size.height)];
+		label.text = @"Blow into the mic to put out the candles:)";
+		label.numberOfLines = 0;
+		label.font = [UIFont systemFontOfSize:viewBounds.size.width * 0.1];
+		label.textAlignment = NSTextAlignmentCenter;
+		label.textColor = [UIColor whiteColor];
+		
+		[topAnimationView addSubview:label];
+		[topAnimationView startCanvasAnimation];
+		
+	}
 	
 }
 
@@ -129,6 +167,10 @@
 		[cakeView.flame2.fireEmitter removeFromSuperlayer];
 		
 		blowTriggered = YES;
+		[recorder stop];
+		
+		// Time to put on the pikachu
+		
 		
 	}
 	
