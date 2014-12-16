@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "CakeView.h"
 #import "SoundManager.h"
-#import <Canvas/Canvas.h>
+#import <Canvas.h>
+#import "SCLAlertView.h"
 
 @interface ViewController ()
 
@@ -58,39 +59,64 @@
 	
 	[super viewDidLoad];
 
-	viewBounds = self.view.layer.bounds;
+	// Check local time
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	[dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
 	
-	// Top and bottom animation view
-	topAnimationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(0,
-																		 0,
-																		 viewBounds.size.width,
-																		 viewBounds.size.height/3.0)];
-	bottomAnimationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(0,
-																			viewBounds.size.height/3.0,
-																			viewBounds.size.width,
-																			viewBounds.size.height*2/3.0)];
+	// Grace's 22nd Birthday
+	NSString *bDayString = @"2014-12-28 00:00:00";
+	NSDate *bDay = [dateFormatter dateFromString:bDayString];
 	
-	// Add cake view to botton animation view
-	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
-															   0,
-															   bottomAnimationView.frame.size.width,
-															   bottomAnimationView.frame.size.height)];
-	[bottomAnimationView addSubview:self.cakeView];
-	
-	bottomAnimationView.duration = 0.5;
-	bottomAnimationView.delay = 0;
-	bottomAnimationView.type = CSAnimationTypeBounceUp;
-	
-	[self.view addSubview:topAnimationView];
-	[self.view addSubview:bottomAnimationView];
-	[bottomAnimationView startCanvasAnimation];
-	
-	// Birthday sound
-	[SoundManager sharedManager].allowsBackgroundMusic = YES;
-	[[SoundManager sharedManager] prepareToPlayWithSound:@"birthdaySong.aiff"];
-	[[SoundManager sharedManager] setSoundVolume:0.3];
-	[[SoundManager sharedManager] setSoundFadeDuration:0.5];
-	[[SoundManager sharedManager] playSound:@"birthdaySong.aiff" looping:NO fadeIn:YES];
+	// Check current time
+	if ([[NSDate date] compare:bDay] != NSOrderedAscending) {
+		
+		viewBounds = self.view.layer.bounds;
+		
+		// Top and bottom animation view
+		topAnimationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(0,
+																			 0,
+																			 viewBounds.size.width,
+																			 viewBounds.size.height/3.0)];
+		bottomAnimationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(0,
+																				viewBounds.size.height/3.0,
+																				viewBounds.size.width,
+																				viewBounds.size.height*2/3.0)];
+		
+		// Add cake view to botton animation view
+		self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
+																   0,
+																   bottomAnimationView.frame.size.width,
+																   bottomAnimationView.frame.size.height)];
+		[bottomAnimationView addSubview:self.cakeView];
+		
+		bottomAnimationView.duration = 0.5;
+		bottomAnimationView.delay = 0;
+		bottomAnimationView.type = CSAnimationTypeBounceUp;
+		
+		[self.view addSubview:topAnimationView];
+		[self.view addSubview:bottomAnimationView];
+		[bottomAnimationView startCanvasAnimation];
+		
+		// Birthday sound
+		[SoundManager sharedManager].allowsBackgroundMusic = YES;
+		[[SoundManager sharedManager] prepareToPlayWithSound:@"birthdaySong.aiff"];
+		[[SoundManager sharedManager] setSoundVolume:0.3];
+		[[SoundManager sharedManager] setSoundFadeDuration:0.5];
+		[[SoundManager sharedManager] playSound:@"birthdaySong.aiff" looping:NO fadeIn:YES];
+		
+	} else {
+		
+		// Show alert view
+		SCLAlertView *alert = [[SCLAlertView alloc] init];
+
+		[alert showWarning:self
+					 title:@"What's the hurry?"
+				  subTitle:@"Comeback later when u r ready to be amazed:)"
+		  closeButtonTitle:nil
+				  duration:0.0f];
+
+	}
 	
 }
 

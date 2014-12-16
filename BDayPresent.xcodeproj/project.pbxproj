@@ -25,6 +25,10 @@
 		405C48A21A4098D000548BFD /* pikachu.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C489F1A4098D000548BFD /* pikachu.aiff */; };
 		405C48A31A4098D000548BFD /* pikapi.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C48A01A4098D000548BFD /* pikapi.aiff */; };
 		405C48A71A409E1200548BFD /* pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 405C48A61A409E1200548BFD /* pokemon.ttf */; };
+		40DF4DD41A40E402008E99EF /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DF4DCD1A40E402008E99EF /* SCLAlertView.m */; };
+		40DF4DD51A40E402008E99EF /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DF4DCF1A40E402008E99EF /* SCLAlertViewResponder.m */; };
+		40DF4DD61A40E402008E99EF /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DF4DD11A40E402008E99EF /* SCLAlertViewStyleKit.m */; };
+		40DF4DD71A40E402008E99EF /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DF4DD31A40E402008E99EF /* SCLButton.m */; };
 		91EBB1402AA7D78134B48D81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C629589292D8D95321FC75FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,14 @@
 		405C489F1A4098D000548BFD /* pikachu.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pikachu.aiff; sourceTree = "<group>"; };
 		405C48A01A4098D000548BFD /* pikapi.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pikapi.aiff; sourceTree = "<group>"; };
 		405C48A61A409E1200548BFD /* pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.ttf; sourceTree = "<group>"; };
+		40DF4DCC1A40E402008E99EF /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
+		40DF4DCD1A40E402008E99EF /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
+		40DF4DCE1A40E402008E99EF /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		40DF4DCF1A40E402008E99EF /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		40DF4DD01A40E402008E99EF /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		40DF4DD11A40E402008E99EF /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		40DF4DD21A40E402008E99EF /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
+		40DF4DD31A40E402008E99EF /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
 		C629589292D8D95321FC75FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +148,7 @@
 		404CDBBF1A2AEB0C004BBDC4 /* BDayPresent */ = {
 			isa = PBXGroup;
 			children = (
+				40DF4DCB1A40E402008E99EF /* SCLAlertView */,
 				402B0CFD1A3FEF11003AD482 /* SoundManager */,
 				404CDBC41A2AEB0C004BBDC4 /* AppDelegate.h */,
 				404CDBC51A2AEB0C004BBDC4 /* AppDelegate.m */,
@@ -195,6 +208,21 @@
 				405C48A61A409E1200548BFD /* pokemon.ttf */,
 			);
 			name = Font;
+			sourceTree = "<group>";
+		};
+		40DF4DCB1A40E402008E99EF /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				40DF4DCC1A40E402008E99EF /* SCLAlertView.h */,
+				40DF4DCD1A40E402008E99EF /* SCLAlertView.m */,
+				40DF4DCE1A40E402008E99EF /* SCLAlertViewResponder.h */,
+				40DF4DCF1A40E402008E99EF /* SCLAlertViewResponder.m */,
+				40DF4DD01A40E402008E99EF /* SCLAlertViewStyleKit.h */,
+				40DF4DD11A40E402008E99EF /* SCLAlertViewStyleKit.m */,
+				40DF4DD21A40E402008E99EF /* SCLButton.h */,
+				40DF4DD31A40E402008E99EF /* SCLButton.m */,
+			);
+			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
 		7047EA4D350C6A3D518FAE26 /* Frameworks */ = {
@@ -358,10 +386,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				404CDBC91A2AEB0C004BBDC4 /* ViewController.m in Sources */,
+				40DF4DD51A40E402008E99EF /* SCLAlertViewResponder.m in Sources */,
 				404CDBC61A2AEB0C004BBDC4 /* AppDelegate.m in Sources */,
 				402B0CFC1A3FDFCB003AD482 /* CakeView.m in Sources */,
 				402B0D001A3FEF11003AD482 /* SoundManager.m in Sources */,
+				40DF4DD61A40E402008E99EF /* SCLAlertViewStyleKit.m in Sources */,
 				40138E041A3F87E20088698C /* FlameView.m in Sources */,
+				40DF4DD41A40E402008E99EF /* SCLAlertView.m in Sources */,
+				40DF4DD71A40E402008E99EF /* SCLButton.m in Sources */,
 				404CDBC31A2AEB0C004BBDC4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
