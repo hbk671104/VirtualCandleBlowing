@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CakeView.h"
 #import "SoundManager.h"
+#import <Canvas/Canvas.h>
 
 @interface ViewController ()
 
@@ -46,11 +47,9 @@
 - (void)viewDidLoad {
 	
 	[super viewDidLoad];
-	
-	// Blow detection
-	[self setUpBlowDetection];
-	
+
 	CGRect viewBounds = self.view.layer.bounds;
+	
 	// Cake view
 	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
 															   viewBounds.size.height/3.0,
@@ -73,8 +72,10 @@
 	
 	if ([[notification name] isEqualToString:SoundDidFinishPlayingNotification]) {
 		
-		// Display the "blow into the mic to put out the candle"
+		NSLog(@"Sound finished playing!");
 		
+		// Fire blow detection
+		[self setUpBlowDetection];
 		
 	}
 		
