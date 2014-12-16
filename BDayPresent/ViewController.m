@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "FlameView.h"
+#import "CakeView.h"
 
 @interface ViewController ()
 
-@property (strong, nonatomic) FlameView *flameView;
+@property (strong, nonatomic) CakeView *cakeView;
 
 @end
 
@@ -24,7 +24,7 @@
 
 @synthesize recorder;
 @synthesize levelTimer;
-@synthesize flameView;
+@synthesize cakeView;
 
 - (void)viewDidLoad {
 	
@@ -33,8 +33,12 @@
 	[self setUpBlowDetection];
 	
 	CGRect viewBounds = self.view.layer.bounds;
-	self.flameView = [[FlameView alloc] initWithFrame:CGRectMake(viewBounds.size.width/2.0 - 10, viewBounds.size.height/2.0 - 10, 20, 20)];
-	[self.view addSubview:self.flameView];
+	
+	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
+															   viewBounds.size.height/3.0,
+															   viewBounds.size.width,
+															   viewBounds.size.height*2/3.0)];
+	[self.view addSubview:self.cakeView];
 	
 }
 
@@ -79,12 +83,13 @@
 	lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
 	
 	if (lowPassResults > 0.95 && !blowTriggered) {
-		NSLog(@"blow detected!");
 		
 		// Remove fire emitter
-		[flameView.fireEmitter removeFromSuperlayer];
+		[cakeView.flame1.fireEmitter removeFromSuperlayer];
+		[cakeView.flame2.fireEmitter removeFromSuperlayer];
 		
 		blowTriggered = YES;
+		
 	}
 	
 }

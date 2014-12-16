@@ -21,14 +21,14 @@
 		self.smokeEmitter	= [CAEmitterLayer layer];
 		
 		// Emitter position
-		self.fireEmitter.emitterPosition = CGPointMake(frame.size.width/2.0, frame.size.height);
+		self.fireEmitter.emitterPosition = CGPointMake(frame.size.width/2.0, frame.size.height/2.0);
 		self.fireEmitter.emitterSize	= CGSizeMake(0, 0);
 		self.fireEmitter.emitterMode	= kCAEmitterLayerOutline;
 		self.fireEmitter.emitterShape	= kCAEmitterLayerLine;
 		// with additive rendering the dense cell distribution will create "hot" areas
 		self.fireEmitter.renderMode		= kCAEmitterLayerAdditive;
 		
-		self.smokeEmitter.emitterPosition = CGPointMake(frame.size.width/2.0, frame.size.height);
+		self.smokeEmitter.emitterPosition = CGPointMake(frame.size.width/2.0, frame.size.height/2.0);
 		self.smokeEmitter.emitterMode	= kCAEmitterLayerPoints;
 		
 		// Create the fire emitter cell

@@ -12,6 +12,7 @@
 		40138DFF1A3F7EDA0088698C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40138DFE1A3F7EDA0088698C /* UIKit.framework */; };
 		40138E011A3F7EE10088698C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40138E001A3F7EE10088698C /* CoreGraphics.framework */; };
 		40138E041A3F87E20088698C /* FlameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40138E031A3F87E20088698C /* FlameView.m */; };
+		402B0CFC1A3FDFCB003AD482 /* CakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B0CFB1A3FDFCB003AD482 /* CakeView.m */; };
 		404CDBC31A2AEB0C004BBDC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC21A2AEB0C004BBDC4 /* main.m */; };
 		404CDBC61A2AEB0C004BBDC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC51A2AEB0C004BBDC4 /* AppDelegate.m */; };
 		404CDBC91A2AEB0C004BBDC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC81A2AEB0C004BBDC4 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 		40138E001A3F7EE10088698C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		40138E021A3F87E20088698C /* FlameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlameView.h; sourceTree = "<group>"; };
 		40138E031A3F87E20088698C /* FlameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlameView.m; sourceTree = "<group>"; };
+		402B0CFA1A3FDFCB003AD482 /* CakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CakeView.h; sourceTree = "<group>"; };
+		402B0CFB1A3FDFCB003AD482 /* CakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CakeView.m; sourceTree = "<group>"; };
 		404CDBBD1A2AEB0C004BBDC4 /* BDayPresent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDayPresent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404CDBC11A2AEB0C004BBDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404CDBC21A2AEB0C004BBDC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				404CDBC81A2AEB0C004BBDC4 /* ViewController.m */,
 				40138E021A3F87E20088698C /* FlameView.h */,
 				40138E031A3F87E20088698C /* FlameView.m */,
+				402B0CFA1A3FDFCB003AD482 /* CakeView.h */,
+				402B0CFB1A3FDFCB003AD482 /* CakeView.m */,
 				404CDBCD1A2AEB0C004BBDC4 /* Images.xcassets */,
 				404CDBC01A2AEB0C004BBDC4 /* Supporting Files */,
 			);
@@ -293,6 +298,7 @@
 			files = (
 				404CDBC91A2AEB0C004BBDC4 /* ViewController.m in Sources */,
 				404CDBC61A2AEB0C004BBDC4 /* AppDelegate.m in Sources */,
+				402B0CFC1A3FDFCB003AD482 /* CakeView.m in Sources */,
 				40138E041A3F87E20088698C /* FlameView.m in Sources */,
 				404CDBC31A2AEB0C004BBDC4 /* main.m in Sources */,
 			);
