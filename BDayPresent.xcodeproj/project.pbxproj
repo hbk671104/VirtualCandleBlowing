@@ -24,6 +24,7 @@
 		405C48A11A4098D000548BFD /* pika.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C489E1A4098D000548BFD /* pika.aiff */; };
 		405C48A21A4098D000548BFD /* pikachu.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C489F1A4098D000548BFD /* pikachu.aiff */; };
 		405C48A31A4098D000548BFD /* pikapi.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C48A01A4098D000548BFD /* pikapi.aiff */; };
+		405C48A71A409E1200548BFD /* pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 405C48A61A409E1200548BFD /* pokemon.ttf */; };
 		91EBB1402AA7D78134B48D81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C629589292D8D95321FC75FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		405C489E1A4098D000548BFD /* pika.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pika.aiff; sourceTree = "<group>"; };
 		405C489F1A4098D000548BFD /* pikachu.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pikachu.aiff; sourceTree = "<group>"; };
 		405C48A01A4098D000548BFD /* pikapi.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pikapi.aiff; sourceTree = "<group>"; };
+		405C48A61A409E1200548BFD /* pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.ttf; sourceTree = "<group>"; };
 		C629589292D8D95321FC75FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,7 +98,6 @@
 		402B0CFD1A3FEF11003AD482 /* SoundManager */ = {
 			isa = PBXGroup;
 			children = (
-				402B0D011A3FEFA8003AD482 /* Resource */,
 				402B0CFE1A3FEF11003AD482 /* SoundManager.h */,
 				402B0CFF1A3FEF11003AD482 /* SoundManager.m */,
 			);
@@ -106,13 +107,10 @@
 		402B0D011A3FEFA8003AD482 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				405C489E1A4098D000548BFD /* pika.aiff */,
-				405C489F1A4098D000548BFD /* pikachu.aiff */,
-				405C48A01A4098D000548BFD /* pikapi.aiff */,
-				402B0D021A3FEFBC003AD482 /* birthdaySong.aiff */,
+				405C48A51A409DD600548BFD /* Font */,
+				405C48A41A409DCF00548BFD /* Sound */,
 			);
 			name = Resource;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		404CDBB41A2AEB0C004BBDC4 = {
@@ -148,6 +146,7 @@
 				402B0CFA1A3FDFCB003AD482 /* CakeView.h */,
 				402B0CFB1A3FDFCB003AD482 /* CakeView.m */,
 				404CDBCD1A2AEB0C004BBDC4 /* Images.xcassets */,
+				402B0D011A3FEFA8003AD482 /* Resource */,
 				404CDBC01A2AEB0C004BBDC4 /* Supporting Files */,
 			);
 			path = BDayPresent;
@@ -177,6 +176,25 @@
 				404CDBDB1A2AEB0C004BBDC4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		405C48A41A409DCF00548BFD /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				405C489E1A4098D000548BFD /* pika.aiff */,
+				405C489F1A4098D000548BFD /* pikachu.aiff */,
+				405C48A01A4098D000548BFD /* pikapi.aiff */,
+				402B0D021A3FEFBC003AD482 /* birthdaySong.aiff */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		405C48A51A409DD600548BFD /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				405C48A61A409E1200548BFD /* pokemon.ttf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		7047EA4D350C6A3D518FAE26 /* Frameworks */ = {
@@ -285,6 +303,7 @@
 			files = (
 				405C48A11A4098D000548BFD /* pika.aiff in Resources */,
 				404CDBCE1A2AEB0C004BBDC4 /* Images.xcassets in Resources */,
+				405C48A71A409E1200548BFD /* pokemon.ttf in Resources */,
 				405C48A21A4098D000548BFD /* pikachu.aiff in Resources */,
 				405C48A31A4098D000548BFD /* pikapi.aiff in Resources */,
 				402B0D031A3FEFBC003AD482 /* birthdaySong.aiff in Resources */,

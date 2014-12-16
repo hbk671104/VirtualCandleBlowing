@@ -118,7 +118,7 @@
 														  topAnimationView.frame.size.height)];
 		label.text = @"Blow into the mic to put out the candles:)";
 		label.numberOfLines = 0;
-		label.font = [UIFont systemFontOfSize:viewBounds.size.width * 0.1];
+		label.font = [UIFont fontWithName:@"Pokemon Hollow" size:viewBounds.size.width * 0.1];
 		label.textAlignment = NSTextAlignmentCenter;
 		label.textColor = [UIColor whiteColor];
 		
