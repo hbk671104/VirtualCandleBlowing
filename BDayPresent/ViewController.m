@@ -14,6 +14,7 @@
 @interface ViewController ()
 
 @property (strong, nonatomic) CakeView *cakeView;
+@property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) CSAnimationView *topAnimationView, *bottomAnimationView;
 
 @end
@@ -31,6 +32,7 @@
 @synthesize levelTimer;
 @synthesize cakeView;
 @synthesize topAnimationView, bottomAnimationView;
+@synthesize label;
 
 - (id) init {
 	
@@ -68,7 +70,7 @@
 	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
 															   0,
 															   bottomAnimationView.frame.size.width,
-															   bottomAnimationView.frame.size.width)];
+															   bottomAnimationView.frame.size.height)];
 	[bottomAnimationView addSubview:self.cakeView];
 	
 	bottomAnimationView.duration = 0.5;
@@ -106,7 +108,10 @@
 		topAnimationView.delay = 0;
 		topAnimationView.type = CSAnimationTypeBounceDown;
 		
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, topAnimationView.frame.size.width, topAnimationView.frame.size.height)];
+		label = [[UILabel alloc] initWithFrame:CGRectMake(0,
+														  0,
+														  topAnimationView.frame.size.width,
+														  topAnimationView.frame.size.height)];
 		label.text = @"Blow into the mic to put out the candles:)";
 		label.numberOfLines = 0;
 		label.font = [UIFont systemFontOfSize:viewBounds.size.width * 0.1];
@@ -169,10 +174,66 @@
 		blowTriggered = YES;
 		[recorder stop];
 		
-		// Time to put on the pikachu
+		// Fade out the cakeview
+		bottomAnimationView.type = CSAnimationTypeFadeOut;
+		bottomAnimationView.delay = 1.0;
+		bottomAnimationView.duration = 0.5;
 		
-		
+		[bottomAnimationView startCanvasAnimation];
+
+		double delayInSeconds = 1.5;
+		dispatch_time_t sleepTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+		dispatch_after(sleepTime, dispatch_get_main_queue(), ^(void){
+			
+			// Remove cake view
+			[self.cakeView removeFromSuperview];
+			
+			bottomAnimationView.type = CSAnimationTypeFadeIn;
+			bottomAnimationView.delay = 0;
+			bottomAnimationView.duration = 1.0;
+			
+			UIImageView *pikachu = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pikachu"]];
+			pikachu.frame = CGRectMake(0,
+									   0,
+									   bottomAnimationView.frame.size.width,
+									   bottomAnimationView.frame.size.height);
+			pikachu.contentMode = UIViewContentModeScaleAspectFit;
+			UITapGestureRecognizer *newTap = [[UITapGestureRecognizer alloc]
+											  initWithTarget:self
+											  action:@selector(animatePikachu)];
+			pikachu.userInteractionEnabled = YES;
+			pikachu.gestureRecognizers = @[newTap];
+			
+			[bottomAnimationView addSubview:pikachu];
+			[bottomAnimationView startCanvasAnimation];
+			
+			double delayInSeconds = 1.0;
+			dispatch_time_t sleepTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+			dispatch_after(sleepTime, dispatch_get_main_queue(), ^(void){
+			
+				topAnimationView.type = CSAnimationTypeSlideDown;
+				topAnimationView.delay = 0;
+				topAnimationView.duration = 1.0;
+				
+				label.text = @"Happy Birthday Grace:)";
+				
+				[topAnimationView startCanvasAnimation];
+				
+			});
+			
+		});
+		 
 	}
+	
+}
+
+- (void) animatePikachu {
+	
+	bottomAnimationView.type = CSAnimationTypeMorph;
+	bottomAnimationView.delay = 0;
+	bottomAnimationView.duration = 1.0;
+	
+	[bottomAnimationView startCanvasAnimation];
 	
 }
 
