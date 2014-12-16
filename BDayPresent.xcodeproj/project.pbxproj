@@ -21,6 +21,9 @@
 		404CDBC91A2AEB0C004BBDC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC81A2AEB0C004BBDC4 /* ViewController.m */; };
 		404CDBCE1A2AEB0C004BBDC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404CDBCD1A2AEB0C004BBDC4 /* Images.xcassets */; };
 		404CDBDD1A2AEB0C004BBDC4 /* BDayPresentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBDC1A2AEB0C004BBDC4 /* BDayPresentTests.m */; };
+		405C48A11A4098D000548BFD /* pika.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C489E1A4098D000548BFD /* pika.aiff */; };
+		405C48A21A4098D000548BFD /* pikachu.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C489F1A4098D000548BFD /* pikachu.aiff */; };
+		405C48A31A4098D000548BFD /* pikapi.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 405C48A01A4098D000548BFD /* pikapi.aiff */; };
 		91EBB1402AA7D78134B48D81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C629589292D8D95321FC75FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		404CDBD61A2AEB0C004BBDC4 /* BDayPresentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDayPresentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404CDBDB1A2AEB0C004BBDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404CDBDC1A2AEB0C004BBDC4 /* BDayPresentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDayPresentTests.m; sourceTree = "<group>"; };
+		405C489E1A4098D000548BFD /* pika.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pika.aiff; sourceTree = "<group>"; };
+		405C489F1A4098D000548BFD /* pikachu.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pikachu.aiff; sourceTree = "<group>"; };
+		405C48A01A4098D000548BFD /* pikapi.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = pikapi.aiff; sourceTree = "<group>"; };
 		C629589292D8D95321FC75FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +106,9 @@
 		402B0D011A3FEFA8003AD482 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				405C489E1A4098D000548BFD /* pika.aiff */,
+				405C489F1A4098D000548BFD /* pikachu.aiff */,
+				405C48A01A4098D000548BFD /* pikapi.aiff */,
 				402B0D021A3FEFBC003AD482 /* birthdaySong.aiff */,
 			);
 			name = Resource;
@@ -274,7 +283,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405C48A11A4098D000548BFD /* pika.aiff in Resources */,
 				404CDBCE1A2AEB0C004BBDC4 /* Images.xcassets in Resources */,
+				405C48A21A4098D000548BFD /* pikachu.aiff in Resources */,
+				405C48A31A4098D000548BFD /* pikapi.aiff in Resources */,
 				402B0D031A3FEFBC003AD482 /* birthdaySong.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

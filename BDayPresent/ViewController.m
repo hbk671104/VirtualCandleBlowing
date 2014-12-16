@@ -25,6 +25,7 @@
 	BOOL blowTriggered;
 	
 	CGRect viewBounds;
+	int pikachuTapCounter;
 	
 }
 
@@ -43,6 +44,9 @@
 												 selector:@selector(soundDidFinishPlaying:)
 													 name:SoundDidFinishPlayingNotification
 												   object:nil];
+		
+		// Init pikachu counter
+		pikachuTapCounter = 0;
 		
 	}
 	
@@ -84,7 +88,7 @@
 	// Birthday sound
 	[SoundManager sharedManager].allowsBackgroundMusic = YES;
 	[[SoundManager sharedManager] prepareToPlayWithSound:@"birthdaySong.aiff"];
-	[[SoundManager sharedManager] setSoundVolume:0.5];
+	[[SoundManager sharedManager] setSoundVolume:0.3];
 	[[SoundManager sharedManager] setSoundFadeDuration:0.5];
 	[[SoundManager sharedManager] playSound:@"birthdaySong.aiff" looping:NO fadeIn:YES];
 	
@@ -120,6 +124,9 @@
 		
 		[topAnimationView addSubview:label];
 		[topAnimationView startCanvasAnimation];
+		
+		// Remove observer
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
 		
 	}
 	
@@ -175,12 +182,13 @@
 		[recorder stop];
 		
 		// Fade out the cakeview
+		
 		bottomAnimationView.type = CSAnimationTypeFadeOut;
 		bottomAnimationView.delay = 1.0;
 		bottomAnimationView.duration = 0.5;
 		
 		[bottomAnimationView startCanvasAnimation];
-
+		
 		double delayInSeconds = 1.5;
 		dispatch_time_t sleepTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
 		dispatch_after(sleepTime, dispatch_get_main_queue(), ^(void){
@@ -229,7 +237,36 @@
 
 - (void) animatePikachu {
 	
-	bottomAnimationView.type = CSAnimationTypeMorph;
+	[[SoundManager sharedManager] setSoundVolume:1.0];
+	
+	switch (pikachuTapCounter++ % 3) {
+			
+		case 0:
+			[[SoundManager sharedManager] prepareToPlayWithSound:@"pika.aiff"];
+			[[SoundManager sharedManager] playSound:@"pika.aiff" looping:NO];
+			
+			bottomAnimationView.type = CSAnimationTypeMorph;
+			break;
+			
+		case 1:
+			[[SoundManager sharedManager] prepareToPlayWithSound:@"pikachu.aiff"];
+			[[SoundManager sharedManager] playSound:@"pikachu.aiff" looping:NO];
+			
+			bottomAnimationView.type = CSAnimationTypePop;
+			break;
+			
+		case 2:
+			[[SoundManager sharedManager] prepareToPlayWithSound:@"pikapi.aiff"];
+			[[SoundManager sharedManager] playSound:@"pikapi.aiff" looping:NO];
+			
+			bottomAnimationView.type = CSAnimationTypeShake;
+			break;
+			
+		default:
+			break;
+			
+	}
+	
 	bottomAnimationView.delay = 0;
 	bottomAnimationView.duration = 1.0;
 	
