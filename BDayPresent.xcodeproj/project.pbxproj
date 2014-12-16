@@ -13,6 +13,9 @@
 		40138E011A3F7EE10088698C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40138E001A3F7EE10088698C /* CoreGraphics.framework */; };
 		40138E041A3F87E20088698C /* FlameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40138E031A3F87E20088698C /* FlameView.m */; };
 		402B0CFC1A3FDFCB003AD482 /* CakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B0CFB1A3FDFCB003AD482 /* CakeView.m */; };
+		402B0D001A3FEF11003AD482 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B0CFF1A3FEF11003AD482 /* SoundManager.m */; };
+		402B0D031A3FEFBC003AD482 /* birthdaySong.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 402B0D021A3FEFBC003AD482 /* birthdaySong.aiff */; };
+		402B0D051A3FEFD7003AD482 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402B0D041A3FEFD7003AD482 /* AVFoundation.framework */; };
 		404CDBC31A2AEB0C004BBDC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC21A2AEB0C004BBDC4 /* main.m */; };
 		404CDBC61A2AEB0C004BBDC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC51A2AEB0C004BBDC4 /* AppDelegate.m */; };
 		404CDBC91A2AEB0C004BBDC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404CDBC81A2AEB0C004BBDC4 /* ViewController.m */; };
@@ -42,6 +45,10 @@
 		40138E031A3F87E20088698C /* FlameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlameView.m; sourceTree = "<group>"; };
 		402B0CFA1A3FDFCB003AD482 /* CakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CakeView.h; sourceTree = "<group>"; };
 		402B0CFB1A3FDFCB003AD482 /* CakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CakeView.m; sourceTree = "<group>"; };
+		402B0CFE1A3FEF11003AD482 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		402B0CFF1A3FEF11003AD482 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		402B0D021A3FEFBC003AD482 /* birthdaySong.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = birthdaySong.aiff; sourceTree = "<group>"; };
+		402B0D041A3FEFD7003AD482 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		404CDBBD1A2AEB0C004BBDC4 /* BDayPresent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDayPresent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404CDBC11A2AEB0C004BBDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404CDBC21A2AEB0C004BBDC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402B0D051A3FEFD7003AD482 /* AVFoundation.framework in Frameworks */,
 				40138E011A3F7EE10088698C /* CoreGraphics.framework in Frameworks */,
 				40138DFF1A3F7EDA0088698C /* UIKit.framework in Frameworks */,
 				40138DFD1A3F7ED40088698C /* Foundation.framework in Frameworks */,
@@ -79,6 +87,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		402B0CFD1A3FEF11003AD482 /* SoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				402B0D011A3FEFA8003AD482 /* Resource */,
+				402B0CFE1A3FEF11003AD482 /* SoundManager.h */,
+				402B0CFF1A3FEF11003AD482 /* SoundManager.m */,
+			);
+			path = SoundManager;
+			sourceTree = "<group>";
+		};
+		402B0D011A3FEFA8003AD482 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				402B0D021A3FEFBC003AD482 /* birthdaySong.aiff */,
+			);
+			name = Resource;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		404CDBB41A2AEB0C004BBDC4 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +129,7 @@
 		404CDBBF1A2AEB0C004BBDC4 /* BDayPresent */ = {
 			isa = PBXGroup;
 			children = (
+				402B0CFD1A3FEF11003AD482 /* SoundManager */,
 				404CDBC41A2AEB0C004BBDC4 /* AppDelegate.h */,
 				404CDBC51A2AEB0C004BBDC4 /* AppDelegate.m */,
 				404CDBC71A2AEB0C004BBDC4 /* ViewController.h */,
@@ -145,6 +173,7 @@
 		7047EA4D350C6A3D518FAE26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				402B0D041A3FEFD7003AD482 /* AVFoundation.framework */,
 				40138E001A3F7EE10088698C /* CoreGraphics.framework */,
 				40138DFE1A3F7EDA0088698C /* UIKit.framework */,
 				40138DFC1A3F7ED40088698C /* Foundation.framework */,
@@ -246,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				404CDBCE1A2AEB0C004BBDC4 /* Images.xcassets in Resources */,
+				402B0D031A3FEFBC003AD482 /* birthdaySong.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +329,7 @@
 				404CDBC91A2AEB0C004BBDC4 /* ViewController.m in Sources */,
 				404CDBC61A2AEB0C004BBDC4 /* AppDelegate.m in Sources */,
 				402B0CFC1A3FDFCB003AD482 /* CakeView.m in Sources */,
+				402B0D001A3FEF11003AD482 /* SoundManager.m in Sources */,
 				40138E041A3F87E20088698C /* FlameView.m in Sources */,
 				404CDBC31A2AEB0C004BBDC4 /* main.m in Sources */,
 			);

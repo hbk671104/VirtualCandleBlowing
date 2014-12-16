@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CakeView.h"
+#import "SoundManager.h"
 
 @interface ViewController ()
 
@@ -33,12 +34,17 @@
 	[self setUpBlowDetection];
 	
 	CGRect viewBounds = self.view.layer.bounds;
-	
 	self.cakeView = [[CakeView alloc] initWithFrame:CGRectMake(0,
 															   viewBounds.size.height/3.0,
 															   viewBounds.size.width,
 															   viewBounds.size.height*2/3.0)];
 	[self.view addSubview:self.cakeView];
+	
+	// Birthday sound
+	[SoundManager sharedManager].allowsBackgroundMusic = YES;
+	[[SoundManager sharedManager] prepareToPlayWithSound:@"birthdaySong.aiff"];
+	
+	[[SoundManager sharedManager] playSound:@"birthdaySong.aiff" looping:NO fadeIn:YES];
 	
 }
 
