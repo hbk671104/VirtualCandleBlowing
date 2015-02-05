@@ -198,7 +198,9 @@
 	double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
 	lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
 	
-	if (lowPassResults > 0.95 && !blowTriggered) {
+	NSLog(@"%f", lowPassResults);
+	
+	if (lowPassResults > 0.75 && !blowTriggered) {
 		
 		// Remove fire emitter
 		[cakeView.flame1.fireEmitter removeFromSuperlayer];
