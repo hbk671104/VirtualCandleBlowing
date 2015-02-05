@@ -198,8 +198,6 @@
 	double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
 	lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
 	
-	NSLog(@"%f", lowPassResults);
-	
 	if (lowPassResults > 0.75 && !blowTriggered) {
 		
 		// Remove fire emitter
